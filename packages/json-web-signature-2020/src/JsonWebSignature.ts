@@ -90,10 +90,10 @@ export class JsonWebSignature {
   async matchProof({
     proof,
   }: // document,
-    // purpose,
-    // documentLoader,
-    // expansionMap,
-    any) {
+  // purpose,
+  // documentLoader,
+  // expansionMap,
+  any) {
     return proof.type === 'sec:JsonWebSignature2020';
   }
 
@@ -332,7 +332,6 @@ export class JsonWebSignature {
   }
 
   ensureSuiteContext({ document, addSuiteContext }: any) {
-
     const { contextUrl } = this;
 
     if (_includesContext({ document, contextUrl })) {
@@ -343,23 +342,26 @@ export class JsonWebSignature {
     if (!addSuiteContext) {
       throw new TypeError(
         `The document to be signed must contain this suite's @context, ` +
-        `"${contextUrl}".`);
+          `"${contextUrl}".`
+      );
     }
 
     // enforce the suite's context by adding it to the document
     const existingContext = document['@context'] || [];
 
-    document['@context'] = Array.isArray(existingContext) ?
-      [...existingContext, contextUrl] : [existingContext, contextUrl];
+    document['@context'] = Array.isArray(existingContext)
+      ? [...existingContext, contextUrl]
+      : [existingContext, contextUrl];
   }
-
 }
 
 function _includesContext({ document, contextUrl }: any) {
-
   console.log(document);
 
   const context = document['@context'];
 
-  return context === contextUrl || (Array.isArray(context) && context.includes(contextUrl));
+  return (
+    context === contextUrl ||
+    (Array.isArray(context) && context.includes(contextUrl))
+  );
 }

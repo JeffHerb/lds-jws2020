@@ -1,6 +1,7 @@
 {
   "name": "@jeffherb/json-web-signature-2020",
-  "private": true,
+  "description": "A forked version of https://github.com/w3c-ccg/lds-jws2020."
+  "version": "0.0.1",
   "scripts": {
     "shove": "git add -A; git commit -m 'chore(ci): test'; git push origin master",
     "postinstall": "npm run bootstrap",
