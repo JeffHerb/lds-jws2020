@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "@jeffherb/json-web-signature-2020",
   "private": true,
   "scripts": {
     "shove": "git add -A; git commit -m 'chore(ci): test'; git push origin master",
